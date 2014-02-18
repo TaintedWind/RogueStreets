@@ -1,0 +1,8 @@
+Some things to be kept in mind while making the game.
+
+
+Using dyn4j physics engine-
+Must convert game to use it properly - example:
+https://code.google.com/p/dyn4j/source/browse/trunk/examples/org/dyn4j/examples/ExampleGraphics2D.java
+
+Using slick2d

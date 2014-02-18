@@ -1,6 +1,5 @@
 package roguestreets;
 
-import org.lwjgl.input.Mouse;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
 
@@ -13,15 +12,12 @@ public class Play extends BasicGameState{
     public static int xOffset = 0;
     public static int yOffset = 0;
     
-    public static int xpos,ypos;
-    
     Image bgImage = null;//TEMP
     
     
     //print testing values
     String OffsetV = "Offset position NO VALUE";
-    public String mouse = "Mouse position NO INPUT";
-    String rotA = "Player rotation NO INPUT";
+    
     
     public static Input input;
     
@@ -54,9 +50,7 @@ public class Play extends BasicGameState{
         bgImage.draw(xOffset,yOffset,Game.scale);
         
         g.setColor(Color.white);
-        g.drawString(mouse, 950, 20);
         g.drawString(OffsetV, 950, 50);
-        g.drawString(rotA,950,80);
         
         player.render(g);
         
@@ -69,11 +63,7 @@ public class Play extends BasicGameState{
         
         bgImage.draw(xOffset,yOffset);
         
-        xpos = Mouse.getX();
-        ypos = (int)Game.gameDim.getHeight() - Mouse.getY();
-        mouse = "Mouse position x: " + xpos + " y: " + ypos;
         OffsetV = "Offset Position x: " + xOffset + " y: " + yOffset;
-        rotA = "Player Rotation: "+player.rotationAngle;
         
         ObjList.updateAllObjects();
         

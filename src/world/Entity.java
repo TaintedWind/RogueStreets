@@ -1,7 +1,9 @@
-package roguestreets;
+package world;
 
 //entities will inherit these things to be defaulted
-public class Entity {
+import engine.Physics;
+
+public class Entity extends Physics{
     
     public int x, y;
     

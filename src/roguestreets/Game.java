@@ -6,7 +6,7 @@ import org.newdawn.slick.state.*;
 
 public class Game extends StateBasedGame{
    
-   public static final String gamename = "Rogue Streets v0.0.8";
+   public static final String gamename = "Rogue Streets Dev 0.0.9";
    public static final int menu = 0;
    public static final int play = 1;
    
@@ -23,7 +23,6 @@ public class Game extends StateBasedGame{
        
        this.addState(new Menu(menu));
        this.addState(new Play(play));
-       
        
    }
    
