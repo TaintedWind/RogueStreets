@@ -1,10 +1,10 @@
-package roguestreets;
+package main;
 
 import java.awt.Dimension;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
 
-public class Game extends StateBasedGame{
+public class RogueStreets extends StateBasedGame{
    
    public static final String gamename = "Rogue Streets Dev 0.0.9";
    public static final int menu = 0;
@@ -17,7 +17,7 @@ public class Game extends StateBasedGame{
    public static final float scale = HEIGHT / 240;
    
    
-   public Game(String gamename){
+   public RogueStreets(String gamename){
        
        super(gamename);
        
@@ -26,6 +26,7 @@ public class Game extends StateBasedGame{
        
    }
    
+   @Override
    public void initStatesList(GameContainer gc) throws SlickException{
        
        this.getState(menu).init(gc, this);
@@ -35,12 +36,11 @@ public class Game extends StateBasedGame{
 
    }
      
-   public static void main(String[] args) {
-
+    public static void main(String[] args) {
         AppGameContainer appgc;
         try{
-            
-            appgc = new AppGameContainer(new Game(gamename));
+
+            appgc = new AppGameContainer(new RogueStreets(gamename));
             appgc.setDisplayMode((int)gameDim.getWidth(), (int)gameDim.getHeight(), false);
             appgc.setTargetFrameRate(120);
             appgc.start();

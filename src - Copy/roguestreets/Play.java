@@ -2,6 +2,7 @@ package roguestreets;
 
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
+import world.GlobalVariables;
 
 
 public class Play extends BasicGameState{
@@ -14,17 +15,15 @@ public class Play extends BasicGameState{
     
     Image bgImage = null;//TEMP
     
-    
     //print testing values
     String OffsetV = "Offset position NO VALUE";
-    
     
     public static Input input;
     
     player.Player player;
     
-    
     public Play(int state){
+        super();
         player = new player.Player(Game.gameDim.width/2,Game.gameDim.height/2);//create a player at centre of screen
     }
     
@@ -33,9 +32,9 @@ public class Play extends BasicGameState{
         
         try{
             bgImage = new Image("assets/imgs/mossconcrete_bg1.png");
+            bgImage.setFilter(Image.FILTER_LINEAR);
             
         }catch(SlickException e){
-            e.printStackTrace();
         }
         
         
@@ -46,7 +45,6 @@ public class Play extends BasicGameState{
         
         g.setBackground(Color.black);
         
-        bgImage.setFilter(Image.FILTER_LINEAR);
         bgImage.draw(xOffset,yOffset,Game.scale);
         
         g.setColor(Color.white);
@@ -59,9 +57,9 @@ public class Play extends BasicGameState{
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
         
-        input = gc.getInput();
+        GlobalVariables.deltaTime = delta;
         
-        bgImage.draw(xOffset,yOffset);
+        input = gc.getInput();
         
         OffsetV = "Offset Position x: " + xOffset + " y: " + yOffset;
         
@@ -108,24 +106,25 @@ public class Play extends BasicGameState{
         }
         //reduce angular speeds
         if (up && left){
-            xOffset -= delta * 0.4f; 
-            yOffset -= delta * 0.4f;
+            xOffset -= delta * 0.38f; 
+            yOffset -= delta * 0.38f;
         }
         if (up && right){
-            xOffset += delta * 0.4f; 
-            yOffset -= delta * 0.4f;
+            xOffset += delta * 0.38f; 
+            yOffset -= delta * 0.38f;
         }
         if (down && left){
-            xOffset -= delta * 0.4f; 
-            yOffset += delta * 0.4f;
+            xOffset -= delta * 0.38f; 
+            yOffset += delta * 0.38f;
         }
         if (down && right){
-            xOffset += delta * 0.4f; 
-            yOffset += delta * 0.4f;
+            xOffset += delta * 0.38f; 
+            yOffset += delta * 0.38f;
         }
         
     }
  
+    @Override
     public int getID() {
         return 1;
     }

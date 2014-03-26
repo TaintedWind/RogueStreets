@@ -1,4 +1,4 @@
-package roguestreets;
+package main;
 
 import java.awt.Rectangle;
 import org.lwjgl.input.Mouse;
@@ -28,7 +28,7 @@ public class Menu extends BasicGameState{
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException{
         backG.draw(0, 0);
 
-        g.setColor(Color.cyan);
+        g.setColor(Color.yellow);
         g.fillRoundRect(100, 100, 100, 20, 2);
 
         g.setColor(Color.black);
@@ -46,7 +46,7 @@ public class Menu extends BasicGameState{
 
         //track the mouse position for testing
         int xpos = Mouse.getX();
-        int ypos = (int)Game.gameDim.getHeight() - Mouse.getY();
+        int ypos = (int)RogueStreets.gameDim.getHeight() - Mouse.getY();
         mouse = "Mouse position x: " + xpos + " y: " + ypos;
         
         if (PlayB.contains(xpos, ypos)){
@@ -57,6 +57,7 @@ public class Menu extends BasicGameState{
 
     }
 
+    @Override
     public int getID(){
        return 0;
     }

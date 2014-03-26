@@ -1,0 +1,21 @@
+Some things to be kept in mind while making the game.
+
+Using slick2d
+
+Thoughts:
+
+Collision-
+    Player collision with other players will NOT happen
+    Then will cycle isNear() for all other mobs to determine the distance.
+    
+    If the mobs pass the initial isNear test 
+        -can you check the direction moving towards the next frame?
+        -store data, if the mob is closer the next frame than in the previous, keep checking for distance
+        -if the mob is moving away from the player, do not check for isNear next frame
+    When/If mob passes isColliding()
+        -get the last point before the collision and determine the angle
+        -move the mob in that direction, move the player less in the opposite, player will push mobs based on a value
+
+    Mobs WILL collide with other mobs
+    How to check every other mob's collision without checking against itself
+    How to check against ech mob only once
